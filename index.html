@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop Cafe WiFi</title>
+<meta name="description" content="Shop Cafe - free WiFi hotspot login and coffee shop.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<ul class="bubbles">
+  <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+</ul>
+
+<div class="wrap">
+
+  <!-- LOGIN -->
+  <div id="login" class="screen active">
+    <div class="logo">
+      <svg class="cup" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+        <path class="steam s1" d="M45 30 C38 22, 52 16, 45 6" />
+        <path class="steam s2" d="M60 30 C53 22, 67 16, 60 6" />
+        <path class="steam s3" d="M75 30 C68 22, 82 16, 75 6" />
+        <path d="M28 38 H92 V62 C92 80 78 92 60 92 C42 92 28 80 28 62 Z" fill="#ff7a00"/>
+        <path d="M92 46 H100 C112 46 112 70 98 70 H91" fill="none" stroke="#ff7a00" stroke-width="7" stroke-linecap="round"/>
+        <rect x="28" y="38" width="64" height="8" rx="4" fill="#e85d04"/>
+        <ellipse cx="60" cy="98" rx="42" ry="7" fill="#ffd2a3"/>
+      </svg>
+      <div class="brand">Shop<span>Cafe</span></div>
+      <small>FREE WIFI</small>
+    </div>
+
+    <div class="tabs">
+      <button id="tabV" class="on" onclick="setTab('voucher')">Voucher</button>
+      <button id="tabM" onclick="setTab('member')">Member</button>
+    </div>
+    <p class="hint" id="hintText">Enter your voucher code, then click Connect.</p>
+    <p class="hint">Free trial available, <a onclick="trial()">click here</a>.</p>
+
+    <div class="field" id="rowUser"><span>🔑</span><input id="user" placeholder="Voucher Code" autocomplete="off"></div>
+    <div class="field" id="rowPass" style="display:none"><span>🔒</span><input id="pass" type="password" placeholder="Password"></div>
+    <div class="err" id="err"></div>
+    <button class="btn" onclick="doLogin()">Connect</button>
+    <div class="foot">Welcome to Shop Cafe<br>Powered by your cafe router</div>
+  </div>
+
+  <!-- STATUS -->
+  <div id="status" class="screen">
+    <h2>Hi, <span id="sUser">guest</span>!</h2>
+    <table>
+      <tr><td>IP address</td><td>10.1.30.6</td></tr>
+      <tr><td>MAC address</td><td>A4:D9:90:6D:A5:31</td></tr>
+      <tr><td>Bytes up / down</td><td id="bytes">0 KiB / 0 KiB</td></tr>
+      <tr><td>Connected</td><td id="timer">00:00:00</td></tr>
+      <tr><td>Status refresh</td><td>1m</td></tr>
+      <tr><td>Expired</td><td><span class="exp" id="expired"></span></td></tr>
+    </table>
+    <button class="btn out" onclick="logout()">Log out</button>
+    <div class="foot">Enjoy your coffee and your WiFi ☕</div>
+  </div>
+
+  <!-- LOGGED OUT -->
+  <div id="logout" class="screen">
+    <h2>You have just logged out!</h2>
+    <table>
+      <tr><td>Username</td><td id="lUser"></td></tr>
+      <tr><td>IP address</td><td>10.1.30.6</td></tr>
+      <tr><td>MAC address</td><td>A4:D9:90:6D:A5:31</td></tr>
+      <tr><td>Session time</td><td id="lTime"></td></tr>
+      <tr><td>Bytes up / down</td><td id="lBytes"></td></tr>
+    </table>
+    <button class="btn" onclick="show('login')">Log in</button>
+    <div class="foot">Thank you for visiting Shop Cafe</div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
